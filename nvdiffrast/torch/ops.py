@@ -30,6 +30,7 @@ def _get_plugin():
             import glob
             for edition in ['Enterprise', 'Professional', 'BuildTools', 'Community']:
                 paths = sorted(glob.glob(r"C:\Program Files (x86)\Microsoft Visual Studio\*\%s\VC\Tools\MSVC\*\bin\Hostx64\x64" % edition), reverse=True)
+                print("paths:", paths)
                 if paths:
                     return paths[0]
 
@@ -81,7 +82,12 @@ def _get_plugin():
 
     # Compile and load.
     source_paths = [os.path.join(os.path.dirname(__file__), fn) for fn in source_files]
-    torch.utils.cpp_extension.load(name=plugin_name, sources=source_paths, extra_cflags=opts, extra_cuda_cflags=opts, extra_ldflags=ldflags, with_cuda=True, verbose=False)
+    print("plugin_name:", plugin_name)
+    print("sources\n:", source_paths)
+    print("extra_cflags:", extra_cflags)
+    print("extra_cuda_cflags:", extra_cuda_cflags)
+    print("extra_ldflags:", extra_ldflags)
+    torch.utils.cpp_extension.load(name=plugin_name, sources=source_paths, extra_cflags=opts, extra_cuda_cflags=opts, extra_ldflags=ldflags, with_cuda=True, verbose=True)
 
     # Import, cache, and return the compiled module.
     import nvdiffrast_plugin
