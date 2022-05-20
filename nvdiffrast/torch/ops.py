@@ -84,8 +84,7 @@ def _get_plugin():
     source_paths = [os.path.join(os.path.dirname(__file__), fn) for fn in source_files]
     print("plugin_name:", plugin_name)
     print("sources\n:", source_paths)
-    print("extra_cflags:", extra_cflags)
-    print("extra_cuda_cflags:", opts)
+    print("extra_cflags/extra_cuda_cflags:", opts)
     print("extra_ldflags:", ldflags)
     torch.utils.cpp_extension.load(name=plugin_name, sources=source_paths, extra_cflags=opts, extra_cuda_cflags=opts, extra_ldflags=ldflags, with_cuda=True, verbose=True)
 
