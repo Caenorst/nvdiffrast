@@ -162,7 +162,9 @@ class RasterizeGLContext:
         else:
             with torch.cuda.device(device):
                 cuda_device_idx = torch.cuda.current_device()
+        print(".RasterizeGLStateWrapper in")
         self.cpp_wrapper = _get_plugin().RasterizeGLStateWrapper(output_db, mode == 'automatic', cuda_device_idx)
+        print(".RasterizeGLStateWrapper out")
         self.active_depth_peeler = None # For error checking only
 
     def set_context(self):
