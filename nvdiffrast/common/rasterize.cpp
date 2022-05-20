@@ -100,7 +100,9 @@ void rasterizeInitGLContext(NVDR_CTX_ARGS, RasterizeGLState& s, int cudaDeviceId
 {
     // Create GL context and set it current.
     s.glctx = createGLContext(cudaDeviceIdx);
+    LOG(INFO) << "Start setGLContext";
     setGLContext(s.glctx);
+    LOG(INFO) << "setGLContext done";
 
     // Version check.
     GLint vMajor = 0;

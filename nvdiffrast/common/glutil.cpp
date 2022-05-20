@@ -93,14 +93,19 @@ static void initializeGLExtensions(void)
 
 void setGLContext(GLContext& glctx)
 {
+    LOG(INFO) << "setGLContext1";
     if (!glctx.hglrc)
         LOG(FATAL) << "setGLContext() called with null gltcx";
+    LOG(INFO) << "setGLContext2";
     if (!wglMakeCurrent(glctx.hdc, glctx.hglrc))
         LOG(FATAL) << "wglMakeCurrent() failed when setting GL context";
+    LOG(INFO) << "setGLContext3";
 
     if (glctx.extInitialized)
         return;
+    LOG(INFO) << "setGLContext4";
     initializeGLExtensions();
+    LOG(INFO) << "setGLContext5";
     glctx.extInitialized = 1;
 }
 
