@@ -87,6 +87,7 @@ def _get_plugin():
     print("extra_cflags/extra_cuda_cflags:", opts)
     print("extra_ldflags:", ldflags)
     torch.utils.cpp_extension.load(name=plugin_name, sources=source_paths, extra_cflags=opts, extra_cuda_cflags=opts, extra_ldflags=ldflags, with_cuda=True, verbose=True)
+    print("there")
 
     # Import, cache, and return the compiled module.
     import nvdiffrast_plugin
