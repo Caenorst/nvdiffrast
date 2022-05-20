@@ -85,8 +85,8 @@ def _get_plugin():
     print("plugin_name:", plugin_name)
     print("sources\n:", source_paths)
     print("extra_cflags:", extra_cflags)
-    print("extra_cuda_cflags:", extra_cuda_cflags)
-    print("extra_ldflags:", extra_ldflags)
+    print("extra_cuda_cflags:", opts)
+    print("extra_ldflags:", ldflags)
     torch.utils.cpp_extension.load(name=plugin_name, sources=source_paths, extra_cflags=opts, extra_cuda_cflags=opts, extra_ldflags=ldflags, with_cuda=True, verbose=True)
 
     # Import, cache, and return the compiled module.
