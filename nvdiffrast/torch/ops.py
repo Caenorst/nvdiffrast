@@ -91,6 +91,7 @@ def _get_plugin():
     # Import, cache, and return the compiled module.
     import nvdiffrast_plugin
     _cached_plugin = nvdiffrast_plugin
+    print("get_plugin out")
     return _cached_plugin
 
 #----------------------------------------------------------------------------
